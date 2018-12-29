@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<!-- Star Rating Component -->
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<link href="./css/star-rating.min.css" media="all" rel="stylesheet" type="text/css"/>
+	<script src="./js/star-rating.min.js"></script>
+
+</head>
+
+<div class="container" style="font-size: 30px; margin-top: 40px; margin-left: 40px;">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<button type="button" class="btn btn-info" id="btn-open-appointment-id" style="font-size: 30px;"><i class="fa fa-arrow-circle-left fa-x"></i> Return </button>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="table-responsive">
+		<table class="table" style="font-size: 15px; text-align: center; width: 100%;"> 
+		<caption style="font-size: 40px; text-align: center; margin-bottom: 30px; margin-top: 25px;">Assessment for Danny</caption>
+		<tr>
+			<th style="font-size: 28px;">Basic Skills</th>
+			<th>
+			<form>
+			<input class="rating-input-cls" value="4">
+			</form>
+			</th>
+		</tr>
+		<tr>
+			<th style="font-size: 28px;">Shooting</th>
+			<th>
+			<form>
+			<input class="rating-input-cls" value="4">
+			</form>
+			</th>
+		</tr>
+		<tr>
+			<th style="font-size: 28px;">Swiftness</th>
+			<th>
+			<form>
+			<input class="rating-input-cls" value="4">
+			</form>
+			</th>
+		</tr>
+		<tr>
+			<th style="font-size: 28px;">Team Spirit</th>
+			<th>
+			<form>
+			<input class="rating-input-cls" value="4">
+			</form>
+			</th>
+		</tr>
+		<tr>
+			<th style="font-size: 28px;">Others</th>
+			<th>
+			<div class="col-sm-8">
+				<input type="text" class="form-control" placeholder="Other asssessments if any" style="font-size: 25px; width: 150%;"></input>
+			</div>
+			</th>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="form-group" style="margin-top:20px; text-align:center; font-size: 30px;">
+	<button type="submit" class="btn btn-primary" style="font-size:20pt">Submit</button>
+</div>
+
+
+
+
+<script>
+$(document).ready(function () {
+	$("input.rating-input-cls").rating({
+		starCaptions: function (val) {
+			if (val < 5) {
+				return val;
+			} else {
+				return 'Perfect!';
+			}
+		},
+		starCaptionClasses: function (val) {
+			if (val <= 1) {
+				return 'label label-danger';
+			} else if (val <= 2) {
+				return 'label label-warning';
+			} else if (val <= 3) {
+				return 'label label-default';
+			} else if (val < 5) {
+				return 'label label-info';
+			} else {
+				return 'label label-success';
+			}
+		},
+		hoverOnClear: false,
+		min: 0.5,
+		high: 5,
+		step: 0.5,
+		showClear: false
+	});
+		$("#btn-open-appointment-id").click(function() {
+		window.location.href = "appointment";
+	});
+});
+</script>

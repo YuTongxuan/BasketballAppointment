@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<head>
+	<meta name="viewport" charset="utf-8" content="user-scalable=0">
+	<title>Main Page</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<style>
+	
+	a.panel-title {
+		font-size: 40px;
+	}
+	
+	</style>
+</head>
+
+
+<div class="container" style="font-size: 30px; margin-top: 40px; margin-left: 40px;">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			 <button type="button" class="btn btn-info" id="btn-open-buddy-list-id" style="font-size: 30px;" ><i class="fa fa-arrow-circle-left fa-x"></i> Return </button>
+		</div>
+	</div>
+</div>
+
+<div style="margin-top: 50px;">
+	<form class="bs-example bs-example-form" role="form" >
+		<div class="col-lg-6">
+			<div class="input-group" style="margin-left: 65px; width: 90%; text-align: center;">
+				<input type="text" class="form-control" placeholder="input username" style="font-size: 40px; height: 80px;">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" style="font-size: 40px; height: 80px;">
+						<i class="fa fa-search fa-x"></i>
+					</button>
+				</span>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div style="width: 90%; font-size: 35px; margin-top: 70px; margin-left: 50px; margin-right: 50px;">
+	<a href="#" class="list-group-item"><i class="fa fa-address-card"></i> Add friends from address list</a>
+	<a href="#" class="list-group-item"><i class="fa fa-qq"></i> Invite from QQ</a>
+	<a href="#" class="list-group-item"><i class="fa fa-wechat"></i> Invite from Wechat</a>
+	<a href="#" class="list-group-item"><i class="fa fa-handshake-o"></i> Users nearby</a>
+</div>
+
+<div class="panel panel-info" style="margin-top: 70px; width: 90%; margin-left: 50px; margin-right: 50px;">
+    <div class="panel-heading">
+        <h3 class="panel-title" style="font-size: 35px;">Someone you might know</h3>
+    </div>
+    <div class="panel-body">
+        <div class="container" style="font-size: 40px; text-align: center;">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<img alt="300x200" src="profile-img-1.png" width="120px" height="120px"/>
+						<div class="caption">
+							<p>
+								Neko
+							</p>
+							<p>
+								<small>have played together 3 times</small>
+							</p>
+							<p style="text-align: center;">
+								 <button class="btn btn-primary btn-lg" style="font-size: 35px;">Add</button>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<img alt="300x200" src="profile-img-2.png" width="120px" height="120px"/>
+						<div class="caption">
+							<p>
+								Dantalion
+							</p>
+							<p>
+								<small>have same interest in: Curry</small>
+							</p>
+							<p style="text-align: center;" >
+								<button class="btn btn-primary btn-lg" style="font-size: 35px;">Add</button>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<img alt="300x200" src="profile-img-3.png" width="120px" height="120px"/>
+						<div class="caption">
+							<p>
+								Bird
+							</p>
+							<p>
+								<small>have 3 common friends</small>
+							</p>
+							<p style="text-align: center;">
+								<button class="btn btn-primary btn-lg" style="font-size: 35px;">Add</button>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+    </div>
+</div>
+
+<script>
+$('document').ready(function() {
+	$("#btn-open-buddy-list-id").click(function() {
+		window.location.href = "buddy-list";
+	});
+});
+</script>

@@ -1,0 +1,159 @@
+<head>
+	<meta name="viewport" charset="utf-8" content="user-scalable=0">
+	<title>Main Page</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+
+ul.nav {
+	opacity: 1.0;
+	background-color: white;
+}
+
+a.nav-link-cls {
+	font-size: 20pt;
+	color: black;
+	text-decoration: none;
+}
+
+iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.tooltip-inner{
+   background: #fa8072 !important; //修改背景色
+   text-align: left !important;//字体左对齐
+   color:#ffffff !important;//字体颜色
+   border:1px solid #dedede;//添加boder
+   max-width: 400px !important;
+   font-size: 20px;
+</style>
+</head>
+
+<div class="container" style="width: 100%;">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="panel-group" id="panel-107303">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						 <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-107303" href="#panel-element-688445" style="font-size: 40px;">Games that I start</a>
+					</div>
+					<div id="panel-element-688445" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="table-responsive" style="margin-top: 35px; font-size: 30px; text-align:center;">
+								<table class="table table-bordered" style="font-size: 25px;">
+									<thead>
+									<tr>
+									<div class="col-md-12 column" style="font-size: 30px; text-align: left;">
+										<span class="label label-info">Ongoing</span>
+									</div>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;Time</td>
+										<td>3 p.m at 2018.12.25</td>
+									</tr>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;Place</td>
+										<td>Cumt BasketBall Court</td>
+									</tr>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;Mode</td>
+										<td>3 vs 3</td>
+									</tr>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;My Partners</td>
+										<td>6 / 6</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>							
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						 <a class="panel-title" data-toggle="collapse" data-parent="#panel-107303" href="#panel-element-895277" style="font-size: 40px">Games that I join</a>
+					</div>
+					<div id="panel-element-895277" class="panel-collapse in">
+						<div class="panel-body">
+							<div class="table-responsive" style="margin-top: 35px; font-size: 30px; text-align:center;">
+								<table class="table table-bordered" style="font-size: 25px;">
+									<thead>
+									<tr>
+									<div class="col-md-12 column" style="font-size: 30px; text-align: left;">
+										<span class="label label-warning" id="label-open-assess-id">Wait to be assessed</span>
+									</div>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;Time</td>
+										<td>3 p.m at 2018.12.12</td>
+									</tr>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;Place</td>
+										<td>Xuzhou Stadium</td>
+									</tr>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;Mode</td>
+										<td>5 vs 5</td>
+									</tr>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;My Partners</td>
+										<td>6 / 6</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>	
+							
+							<div class="table-responsive" style="margin-top: 35px; font-size: 30px; text-align:center;">
+								<table class="table table-bordered" style="font-size: 25px;">
+									<thead>
+									<tr>
+									<div class="col-md-12 column" style="font-size: 30px; text-align: left;">
+										<span class="label label-success">Finished</span>
+									</div>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;Time</td>
+										<td>3 p.m at 2018.12.12</td>
+									</tr>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;Place</td>
+										<td>Xuzhou Stadium</td>
+									</tr>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;Mode</td>
+										<td>5 vs 5</td>
+									</tr>
+									<tr>
+										<td style="text-align:left;">&emsp;&emsp;&emsp;&emsp;My Partners</td>
+										<td>6 / 6</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+$('document').ready(function() {
+	$("#label-open-assess-id").click(function() {
+		window.location.href="assess";
+	});
+
+});
+</script>

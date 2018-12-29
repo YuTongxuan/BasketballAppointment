@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" charset="utf-8" content="user-scalable=0">
+	<title>Main Page</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	
+	<style>
+	img {
+		border:1px solid black
+	}
+	</style>
+	
+</head>
+
+
+<div class="container" style="width: 100%; height: 90px; font-size: 30px;">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<ul class="nav nav-tabs">
+				<li>
+					 <a href="buddy-list">Buddy List</a>
+				</li>
+				<li class="active">
+					 <a href="messages">Messages</a>
+				</li>
+				<li class="dropdown pull-right">
+					 <a href="" data-toggle="dropdown" class="dropdown-toggle">add<strong class="caret"></strong></a>
+					<ul class="dropdown-menu" style="text-align: center; font-size: 30px;";>
+						<li>
+							 <a id="btn-open-add-friends-id">Add Friends</a>
+						</li>
+						<li>
+							 <a href="">Add Group</a>
+						</li>
+						<li>
+							 <a href="#">QR Code</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<table class="table" style="margin-bottom: 0px; font-size: 40px;">
+<tbody>
+	<tr><td><img src="system-message-img.png"></img>&nbsp;&nbsp;System</td>
+		<td>
+			<button class="btn btn-success" style="font-size: 25px;">Accept</button>&nbsp;&nbsp;
+			<button class="btn btn-danger" style="font-size: 25px;">Decline</button>&nbsp;&nbsp;
+			<small>Bird</small>
+		</td>
+	</tr>
+	<tr><td><img src="profile-img-1.png"></img>&nbsp;&nbsp;Neko Gong</td>  <td><small>Can you please come and ...</small><span class="badge pull-right" style="font-size: 30px; margin-top: 10px; margin-bottom: 10px; margin-right: 15px;">3</span> </td></tr>
+	<tr id="btn-open-chat-content-id"><td><img src="profile-img-2.png"></img>&nbsp;&nbsp;Bird</td>  <td><small>Can you please come and ...</small></td>  </tr>
+	<tr><td><img src="profile-img-3.png"></img>&nbsp;&nbsp;Shelock</td>  <td><small>Can you please come and ...</small></td>  </tr>
+	<tr><td><img src="profile-img-4.png"></img>&nbsp;&nbsp;Rabbit</td>  <td><small>Can you please come and ...</small></td>  </tr>
+	<tr><td><img src="profile-img-5.png"></img>&nbsp;&nbsp;Lisa</td>  <td><small>Can you please come and ...</small></td>  </tr>
+</tbody>
+</table>
+
+<script>
+$('document').ready(function() {
+	$("#btn-open-add-friends-id").click(function() {
+		window.location.href = "add-friends";
+	});
+	$("#btn-open-chat-content-id").click(function() {
+		window.location.href = "chat-content";
+	});
+});
+</script>

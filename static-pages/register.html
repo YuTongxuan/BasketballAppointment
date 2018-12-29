@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Main Page</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">	
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+	<link href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	<script src="common.js"></script>
+<style>
+
+div.title-div-cls {
+	margin-top: 200px;
+	font-size: 50px;
+}
+
+form {
+	margin-top: 200px;
+	margin-left: 50px;
+	margin-right: 50px;
+	font-size: 30px;
+}
+
+input.form-control {
+	font-size: 30px;
+	size: 30px;
+	height: auto;
+}
+
+button.btn {
+	font-size: 30px;
+}
+
+.iradio_square-blue {
+	height: 30px;
+	width: 30px;
+}
+
+div.form-group {
+	margin-bottom: 30px;
+}
+
+select.form-control {
+	font-size: 30px;
+	height: auto;
+	width: 250px;
+	max-height: 60px;
+}
+
+option.opt-cls {
+	font-size: 15px;
+	height: 15px;
+	padding: 0;
+}
+
+#toast-container {
+	font-size: 25px;
+}
+
+div.img-container-div-cls {
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: 1s;
+	-moz-transition-property: -moz-transform;
+	-moz-transition-duration: 1s;
+	-webkit-animation: rotate 3s linear infinite;
+	-moz-animation: rotate 3s linear infinite;
+	-o-animation: rotate 3s linear infinite;
+	animation: rotate 3s linear infinite;}
+@-webkit-keyframes rotate{from{-webkit-transform: rotate(0deg)}
+	to{-webkit-transform: rotate(360deg)}
+}
+@-moz-keyframes rotate{from{-moz-transform: rotate(0deg)}
+	to{-moz-transform: rotate(359deg)}
+}
+@-o-keyframes rotate{from{-o-transform: rotate(0deg)}
+	to{-o-transform: rotate(359deg)}
+}
+@keyframes rotate{from{transform: rotate(0deg)}
+	to{transform: rotate(359deg)}
+}
+
+</style>
+</head>
+
+
+
+<body>
+
+<div style="text-align: center;" class="title-div-cls">User Register</div>
+
+<div style="text-align: center" class="img-container-div-cls"><img src="basketball-icon.png"></img></div>
+
+<form class="form-horizontal" role="form" id="v-app">
+	<div class="form-group" v-bind:class="{'has-error':userNameFailed}">
+		<label class="col-sm-4 control-label">User Name</label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" id="password" placeholder="please input user name" v-model="userName"></input>
+		</div>
+	</div>
+	<div class="form-group" v-bind:class="{'has-error':passwordFailed}">
+		<label class="col-sm-4 control-label">Password</label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" placeholder="please input password" v-model="password"></input>
+		</div>
+	</div>
+	<div class="form-group" v-bind:class="{'has-error':passwordFailed}">
+		<label class="col-sm-4 control-label">Confirm Password</label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" placeholder="please confirm password" v-model="passwordConfirm"></input>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-4 control-label">Gender</label>
+		<div class="col-sm-8">
+			<input type="radio" name="gender" value="Male" v-model="gender" checked> Male
+			<input type="radio" name="gender" value="Female" v-model="gender"> Female
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-4 control-label">Birthday</label>
+		<div class="col-sm-8">
+			<select class="form-control" v-model="birthday">
+			</select>
+		</div>
+	</div>
+	<div class="form-group" style="margin-top: 100px">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="button" class="btn btn-default">Register</button>
+		</div>
+	</div>
+</form>
+
+</body>
+
+</html>
+
+<script>
+
+toastr.options = {
+	timeOut: "3000",
+	positionClass: "toast-top-full-width",
+};
+
+let vueObject = null;
+
+$('document').ready(function() {
+	initSelectOptions(1950, 2018);
+
+	vueObject = new Vue({
+		el: '#v-app',
+		data: {
+			userNameFailed: false,
+			passwordFailed: false,
+			userName: "",
+			password: "",
+			passwordConfirm: "",
+			gender: "Male",
+			birthday: "2018"
+		}
+	});
+
+	$('button').click(registerAction);
+});
+
+function initSelectOptions(minBirthYear, maxBirthYear) {
+	const selectComp = $("select");
+	for(let i = minBirthYear; i <= maxBirthYear; i++) {
+		const optionComp = $(`<option value="${i}"class="opt-cls">${i}</option>`);
+		selectComp.append(optionComp);
+	}
+}
+
+function registerAction() {
+	if (vueObject.password !== vueObject.passwordConfirm) {
+		toastr.error('The passwords are not consistent.');
+		vueObject.userNameFailed = false;
+		vueObject.passwordFailed = true;
+	} else if (vueObject.password.length < 3) {
+		toastr.error('The length password should contain at least 3 characters.');
+		vueObject.userNameFailed = false;
+		vueObject.passwordFailed = true;
+	} else {
+		tryRegisterUser();
+	}
+}
+
+function tryRegisterUser() {
+	$.ajax({
+		url: 'api/register',
+		contentType: 'application/json',
+		type: "POST",
+		data: `{
+			"age": ${1900 + (new Date().getYear()) - parseInt(vueObject.birthday)},
+			"userName": "${vueObject.userName}",
+			"password": "${vueObject.password}",
+			"gender": "${vueObject.gender}"
+		}`,
+		success: function(user) {
+			window.location.href = "login";
+		},
+		error: function(response, textStatus, errorThrown) {
+			const msg = comm.getDeclaredErrorMessage(response);
+			toastr.error(msg);
+            vueObject.userNameFailed = true;
+            vueObject.passwordFailed = false;
+		}
+	});
+}
+
+</script>
+

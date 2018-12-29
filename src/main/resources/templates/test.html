@@ -1,0 +1,94 @@
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Unit Test Page</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+
+<div id="app" class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table table-hover table-striped ">
+                <caption>Test Cases</caption>
+                <thead>
+                <tr>
+                    <th>
+                        Step ID
+                    </th>
+                    <th>
+                        Step Name
+                    </th>
+                    <th>
+                        Case Status
+                    </th>
+                    <th>
+                        Case Result
+                    </th>
+                    <th>
+                        Expect Code
+                    </th>
+                    <th>
+                        Actual Code
+                    </th>
+                    <th>
+                        Case Comment
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="testCase in cases" v-bind:class="testCase.style">
+                    <td>
+                        {{ testCase.id }}
+                    </td>
+                    <td>
+                        {{ testCase.name }}
+                    </td>
+                    <td>
+                        {{ testCase.status }}
+                    </td>
+                    <td>
+                        {{ testCase.result }}
+                    </td>
+                    <td>
+                        {{ testCase.expectedCode }}
+                    </td>
+                    <td>
+                        {{ testCase.actualCode }}
+                    </td>
+                    <td>
+                        {{ testCase.comment }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+const vueObject = new Vue({
+	el: '#app',
+	data: {
+		cases: []
+	}
+})
+const caseVars = {
+	globalVar: null,
+	globalArray: null,
+};
+
+</script>
+<script src="UserCase.js"></script>
+<script src="RoomCase.js"></script>
+<script src="UnitTestLauncher.js"></script>
+<script>
+registerCasesAndRun(userCase, roomCase);
+
+</script>

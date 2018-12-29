@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" charset="utf-8" content="user-scalable=0">
+	<title>Main Page</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+
+ul.nav {
+	opacity: 1.0;
+	background-color: white;
+}
+
+a.nav-link-cls {
+	font-size: 20pt;
+	color: black;
+	text-decoration: none;
+}
+
+iframe {
+	width: 100%;
+	height: 100%;
+}
+
+</style>
+</head>
+
+
+
+<body>
+
+<ul class="nav nav-pills navbar-fixed-bottom nav-justified" style="margin-bottom: 0; padding-top: 0;">
+	<hr style="color: black;">
+	<li>
+		<div style="text-align: center;">
+		<a class="nav-link-cls"><i class="fa fa-cubes fa-4x"></i><br>Play</a>
+		</div>
+	</li>
+	<li>
+		<div style="text-align: center;">
+		<a class="nav-link-cls"><i class="fa fa-address-book-o fa-4x"></i><br>Appointment</a>
+		</div>
+	</li>
+	<li>
+		<div style="text-align: center;">
+		<a class="nav-link-cls"><i class="fa fa-ravelry fa-4x"></i><br>Chat</a>
+		</div>
+	</li>
+	<li>
+		<div style="text-align: center;">
+		<a class="nav-link-cls"><i class="fa fa-user fa-fw fa-4x"></i><br>User</a>
+		</div>
+	</li>
+</ul>
+<iframe id="frame-id" frameborder="no"></iframe>
+
+<div class="footer-div-cls" style="height: 165px;" />
+</body>
+
+</html>
+
+<script>
+
+const log = console.log;
+
+$(document).ready(function() {
+	const ifJqObj = $("#frame-id");
+	ifJqObj.css('width', window.innerWidth + 'px');
+	ifJqObj.css('height', (window.innerHeight - 180) + 'px');
+	
+	setLinkStyles();
+	activateLinkStyle($('a').eq(0));
+});
+
+function setLinkStyles() {
+	$('a').click(function() {
+		activateLinkStyle($(this));
+	});
+}
+
+function activateLinkStyle(linkJqObj) {
+	const targets = ['play', 'appointment', 'buddy-list', 'login'];
+	$('a').css('color', 'black');
+	linkJqObj.css('color', '#337ab7');
+	const index = $('li').index(linkJqObj.parent().parent());
+	$('iframe').get(0).src = targets[index];
+}
+
+</script>
+
